@@ -1,0 +1,18 @@
+[package]
+authors = ["Alex Eagleson <alexeagleson@gmail.com>"]
+description = "A Rust library for handling directions cardinal and ordinal directions.  Intended for use in game development."
+edition = "2021"
+homepage = "https://github.com/alexeagleson"
+license = "MIT OR Apache-2.0"
+name = "ae-direction"
+readme = "README.md"
+repository = ""
+rust-version = "1.65"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.5"
+serde = {version = "1.0.140", features = ["derive"]}
+serde_json = "1.0.82"
