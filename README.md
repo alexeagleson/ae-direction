@@ -1,6 +1,6 @@
 # AE Direction
 
-A Rust library for handling directions cardinal and ordinal directions.  Intended for use in game development.
+A Rust library for handling directions (cardinal and ordinal).  Intended for use in game development.
 
 ## Usage
 

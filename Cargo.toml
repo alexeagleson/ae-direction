@@ -1,6 +1,6 @@
 [package]
 authors = ["Alex Eagleson <alexeagleson@gmail.com>"]
-description = "A Rust library for handling directions cardinal and ordinal directions.  Intended for use in game development."
+description = "A Rust library for handling directions (cardinal and ordinal).  Intended for use in game development."
 edition = "2021"
 homepage = "https://github.com/alexeagleson"
 license = "MIT OR Apache-2.0"
