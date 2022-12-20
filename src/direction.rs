@@ -4,7 +4,7 @@ use typeshare::typeshare;
 
 #[typeshare]
 #[derive(Serialize, Deserialize, PartialEq, Clone, Debug)]
-#[serde(rename_all = "camelCase", tag = "type", content = "content")]
+#[serde(rename_all = "camelCase")]
 pub enum Cardinal {
     North,
     East,
@@ -14,7 +14,7 @@ pub enum Cardinal {
 
 #[typeshare]
 #[derive(Serialize, Deserialize, PartialEq, Clone, Debug)]
-#[serde(rename_all = "camelCase", tag = "type", content = "content")]
+#[serde(rename_all = "camelCase")]
 pub enum Ordinal {
     Northeast,
     Southeast,
