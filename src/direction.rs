@@ -1,8 +1,10 @@
 use rand::{distributions::Standard, prelude::Distribution};
 use serde::{Deserialize, Serialize};
+use typeshare::typeshare;
 
+#[typeshare]
 #[derive(Serialize, Deserialize, PartialEq, Clone, Debug)]
-#[serde(tag = "t", content = "c")]
+#[serde(rename_all = "camelCase", tag = "type", content = "content")]
 pub enum Cardinal {
     North,
     East,
@@ -10,8 +12,9 @@ pub enum Cardinal {
     West,
 }
 
+#[typeshare]
 #[derive(Serialize, Deserialize, PartialEq, Clone, Debug)]
-#[serde(tag = "t", content = "c")]
+#[serde(rename_all = "camelCase", tag = "type", content = "content")]
 pub enum Ordinal {
     Northeast,
     Southeast,
@@ -20,8 +23,9 @@ pub enum Ordinal {
 }
 
 /// Represents a direction, either cardinal or ordinal
+#[typeshare]
 #[derive(Serialize, Deserialize, PartialEq, Clone, Debug)]
-#[serde(tag = "t", content = "c")]
+#[serde(rename_all = "camelCase", tag = "type", content = "content")]
 pub enum Direction {
     Cardinal(Cardinal),
     Ordinal(Ordinal),
@@ -34,7 +38,7 @@ impl Distribution<Cardinal> for Standard {
             1 => Cardinal::East,
             2 => Cardinal::South,
             3 => Cardinal::West,
-            _ => unreachable!()
+            _ => unreachable!(),
         }
     }
 }
