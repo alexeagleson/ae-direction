@@ -1,10 +1,8 @@
-use rand::{distributions::Standard, prelude::Distribution};
-use serde::{Deserialize, Serialize};
-use typeshare::typeshare;
+use std::fmt::Display;
 
-#[typeshare]
-#[derive(Serialize, Deserialize, PartialEq, Clone, Debug)]
-#[serde(rename_all = "camelCase")]
+use rand::{distributions::Standard, prelude::Distribution};
+
+#[derive(PartialEq, Clone, Debug)]
 pub enum Cardinal {
     North,
     East,
@@ -12,9 +10,18 @@ pub enum Cardinal {
     West,
 }
 
-#[typeshare]
-#[derive(Serialize, Deserialize, PartialEq, Clone, Debug)]
-#[serde(rename_all = "camelCase")]
+impl Display for Cardinal {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Cardinal::North => write!(f, "north"),
+            Cardinal::East => write!(f, "east"),
+            Cardinal::South => write!(f, "south"),
+            Cardinal::West => write!(f, "west"),
+        }
+    }
+}
+
+#[derive(PartialEq, Clone, Debug)]
 pub enum Ordinal {
     Northeast,
     Southeast,
@@ -22,10 +29,19 @@ pub enum Ordinal {
     Northwest,
 }
 
+impl Display for Ordinal {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Ordinal::Northeast => write!(f, "northeast"),
+            Ordinal::Southeast => write!(f, "southeast"),
+            Ordinal::Southwest => write!(f, "southwest"),
+            Ordinal::Northwest => write!(f, "northwest"),
+        }
+    }
+}
+
 /// Represents a direction, either cardinal or ordinal
-#[typeshare]
-#[derive(Serialize, Deserialize, PartialEq, Clone, Debug)]
-#[serde(rename_all = "camelCase", tag = "type", content = "content")]
+#[derive(PartialEq, Clone, Debug)]
 pub enum Direction {
     Cardinal(Cardinal),
     Ordinal(Ordinal),
@@ -77,6 +93,15 @@ impl Direction {
                 Ordinal::Southwest => Direction::Ordinal(Ordinal::Northwest),
                 Ordinal::Northwest => Direction::Ordinal(Ordinal::Northeast),
             },
+        }
+    }
+}
+
+impl Display for Direction {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Direction::Cardinal(cardinal) => write!(f, "{}", cardinal),
+            Direction::Ordinal(ordinal) => write!(f, "{}", ordinal),
         }
     }
 }

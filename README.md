@@ -8,7 +8,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-ae-direction = "0.1.3"
+ae-direction = "0.1.4"
 ```
 # License
 
